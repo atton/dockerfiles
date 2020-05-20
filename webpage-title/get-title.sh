@@ -3,7 +3,7 @@ cd `dirname $0`
 
 if [ $# -eq 0 ]; then
     echo 'Please input URL. like'
-    echo "$ docker run --rm webpage-title 'https://atton.github.io'"
+    echo "  $ docker run --rm atton/webpage-title 'https://atton.github.io'"
     exit
 fi
 

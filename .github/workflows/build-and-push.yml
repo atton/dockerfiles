@@ -1,0 +1,24 @@
+# https://github.com/marketplace/actions/publish-docker
+
+name: Publish Docker Images
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Publish to DockerHub
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: atton/webpage-title
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: webpage-title/Dockerfile
+        buildoptions: "--compress --force-rm"
+        context: webpage-title
+    - name: Logout
+      run: docker logout
+      if: ${{ always() }}
+

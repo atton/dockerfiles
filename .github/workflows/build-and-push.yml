@@ -5,9 +5,9 @@ name: Publish Docker Images
 on: push
 
 jobs:
-  webpage-title:
+  build-and-publish:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Build Images
+    - name: Build and Publish Images
       run: sh build.sh ${{ secrets.DOCKER_PASSWORD }}

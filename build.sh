@@ -8,6 +8,10 @@ for name in `ls`; do
     if [ ! -d $name ]; then continue; fi
     if [ ! -f $name/Dockerfile ]; then continue; fi
 
-    docker build $buildopt -t atton/$name $name
+    tag="atton/$name"
+    docker build $buildopt -t $tag $name
+
+    git diff-tree --no-commit-id --name-only -r HEAD | grep $name/ >& /dev/null
+    if [ $? -eq 0 ]; then docker push $tag; fi
 done
 if [ -n "$1" ]; then docker logout; fi

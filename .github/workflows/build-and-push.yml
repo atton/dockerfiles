@@ -8,6 +8,7 @@ jobs:
   build-and-publish:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - name: Clone repository
+      run: git clone https://github.com/atton/dockerfiles
     - name: Build and Publish Images
-      run: sh build.sh ${{ secrets.DOCKER_PASSWORD }}
+      run: sh dockerfiles/build.sh ${{ secrets.DOCKER_PASSWORD }}

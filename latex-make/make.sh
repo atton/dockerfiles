@@ -5,6 +5,5 @@ if [ ! -f Makefile ]; then
     exit
 fi
 
-# UTC to JST
-export SOURCE_DATE_EPOCH=`echo "($(date +'%s') + 9 * 60 * 60)" | bc`
+export TZ=/etc/localtime
 make

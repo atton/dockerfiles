@@ -1,5 +1,5 @@
 ## Status
-* ![Publish Docker Images](https://github.com/atton/dockerfiles/workflows/Publish%20Docker%20Images/badge.svg)
+* ![Build and Push Docker Images](https://github.com/atton/dockerfiles/workflows/Build%20and%20Push%20Docker%20Images/badge.svg)
 
 ## Public Docker Images
 * [atton/latex-make](https://hub.docker.com/r/atton/latex-make)

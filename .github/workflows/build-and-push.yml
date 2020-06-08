@@ -1,14 +1,12 @@
-# https://github.com/marketplace/actions/publish-docker
-
-name: Publish Docker Images
+name: Build and Push Docker Images
 
 on: push
 
 jobs:
-  build-and-publish:
+  build-and-push:
     runs-on: ubuntu-latest
     steps:
     - name: Clone repository
       run: git clone https://github.com/atton/dockerfiles
-    - name: Build and Publish Images
+    - name: Build and Push Docker Images
       run: sh dockerfiles/build.sh ${{ secrets.DOCKER_PASSWORD }}

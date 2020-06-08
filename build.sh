@@ -1,5 +1,11 @@
 #!/bin/sh
 cd `dirname $0`
 
-docker build --rm -t atton/latex-make    latex-make
-docker build --rm -t atton/webpage-title webpage-title
+buildopt='--compress --pull'
+
+for name in `ls`; do
+    if [ ! -d $name ]; then continue; fi
+    if [ ! -f $name/Dockerfile ]; then continue; fi
+
+    docker build $buildopt -t atton/$name $name
+done

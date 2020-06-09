@@ -5,5 +5,4 @@ if [ ! -f Makefile ]; then
     exit
 fi
 
-export TZ=/etc/localtime
 make
